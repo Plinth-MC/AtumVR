@@ -459,16 +459,6 @@ public abstract class XRInputHandler implements AtumVRInputHandler {
             if(bindingsSet.isEmpty()) continue;
 
             suggestBindings(xrInstance, profileType.getXrPath(), bindingsSet);
-
-            // Quest 3/3S: same actions, so OculusTouchXRProfile stays the active profile
-            if (profileType == OCULUS_TOUCH
-                    && vrProvider.getSession().getInstance().isExtensionEnabled(
-                            OculusTouchXRProfile.META_TOUCH_CONTROLLER_PLUS_EXTENSION_NAME)) {
-                vrProvider.getLogger().logInfo(
-                        "Suggesting Oculus Touch bindings for " + OculusTouchXRProfile.TOUCH_CONTROLLER_PLUS_PROFILE_PATH
-                );
-                suggestBindings(xrInstance, OculusTouchXRProfile.TOUCH_CONTROLLER_PLUS_PROFILE_PATH, bindingsSet);
-            }
         }
     }
 
